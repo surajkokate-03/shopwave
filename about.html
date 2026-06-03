@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — ShopWave</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#0a0a0a;--bg2:#111111;--bg3:#1a1a1a;--card:#161616;--border:rgba(255,255,255,0.08);--accent:#c8f461;--accent2:#f4e161;--text:#f0f0f0;--muted:#888;--radius:16px;--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:-0.5px}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.cart-btn{background:var(--accent);color:#000;border:none;border-radius:50px;padding:8px 18px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;text-decoration:none;transition:transform var(--transition),opacity var(--transition)}
+.cart-btn:hover{opacity:0.85;transform:scale(1.02)}
+section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+.about-hero{text-align:center;padding:5rem 2rem 3rem}
+.about-hero h1{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;margin-bottom:1rem}
+.about-hero h1 span{color:var(--accent)}
+.about-hero p{color:var(--muted);max-width:600px;margin:0 auto;font-size:1.1rem;line-height:1.8}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(200,244,97,0.1);border:1px solid rgba(200,244,97,0.3);color:var(--accent);font-size:12px;font-weight:600;padding:6px 14px;border-radius:50px;margin-bottom:1.5rem;letter-spacing:0.5px;text-transform:uppercase}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+.section-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;letter-spacing:-0.5px}
+.section-title span{color:var(--accent)}
+.features-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:3rem}
+.feature-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center}
+.feature-icon{font-size:1.8rem;margin-bottom:8px}
+.feature-title{font-weight:600;font-size:14px;margin-bottom:4px}
+.feature-desc{color:var(--muted);font-size:12px}
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1rem}
+.tech-chip{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center;font-size:13px;font-weight:500}
+.tech-chip .tc-icon{font-size:1.8rem;margin-bottom:6px}
+.divider{border:none;border-top:1px solid var(--border);margin:3rem 0}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--border)}
+.tl-item{position:relative;padding-bottom:2rem}
+.tl-item::before{content:'';position:absolute;left:-2.4rem;top:4px;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.tl-title{font-weight:600;margin-bottom:4px}
+.tl-sub{color:var(--muted);font-size:13px}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;color:var(--muted);font-size:13px}
+footer .footer-logo{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--accent);display:block;margin-bottom:1rem}
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--accent);color:#000;padding:12px 24px;border-radius:50px;font-weight:600;font-size:14px;z-index:300;transition:transform var(--transition);pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}
+@media(max-width:768px){.nav-links{display:none}section{padding:3rem 1rem}.about-hero h1{font-size:2rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">ShopWave</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="index.html#recommendations">Picks</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="shop.html" class="cart-btn">🛍️ Shop Now</a>
+  </div>
+</nav>
+
+<div class="about-hero">
+  <div class="hero-badge">✦ About This Project</div>
+  <h1>Built for <span>Learning,</span><br>Designed to <span>Impress.</span></h1>
+  <p>ShopWave is a full-featured e-commerce frontend project built as part of a web development internship. It demonstrates real-world skills in HTML, CSS, and JavaScript.</p>
+</div>
+
+<section>
+  <div class="section-header"><h2 class="section-title">What's <span>Inside</span></h2></div>
+  <div class="features-strip">
+    <div class="feature-card"><div class="feature-icon">🎨</div><div class="feature-title">Dark Mode UI</div><div class="feature-desc">Fully responsive modern dark design</div></div>
+    <div class="feature-card"><div class="feature-icon">🛒</div><div class="feature-title">Shopping Cart</div><div class="feature-desc">localStorage persistence, qty control & checkout</div></div>
+    <div class="feature-card"><div class="feature-icon">🔍</div><div class="feature-title">Live Search</div><div class="feature-desc">Real-time product search with instant filtering</div></div>
+    <div class="feature-card"><div class="feature-icon">🏷️</div><div class="feature-title">Smart Filters</div><div class="feature-desc">Category, price range, sort, sale & new filters</div></div>
+    <div class="feature-card"><div class="feature-icon">💡</div><div class="feature-title">Recommendations</div><div class="feature-desc">Dynamic picks based on cart state</div></div>
+    <div class="feature-card"><div class="feature-icon">❤️</div><div class="feature-title">Wishlist</div><div class="feature-desc">Save favourite products with persistence</div></div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="section-header"><h2 class="section-title">Tech <span>Stack</span></h2></div>
+  <div class="tech-grid" style="margin-bottom:3rem">
+    <div class="tech-chip"><div class="tc-icon">🌐</div>HTML5</div>
+    <div class="tech-chip"><div class="tc-icon">🎨</div>CSS3</div>
+    <div class="tech-chip"><div class="tc-icon">⚡</div>JavaScript</div>
+    <div class="tech-chip"><div class="tc-icon">📦</div>localStorage</div>
+    <div class="tech-chip"><div class="tc-icon">🅰️</div>Google Fonts</div>
+    <div class="tech-chip"><div class="tc-icon">📱</div>Responsive</div>
+    <div class="tech-chip"><div class="tc-icon">🐙</div>GitHub Pages</div>
+    <div class="tech-chip"><div class="tc-icon">🎯</div>Vanilla JS</div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="section-header"><h2 class="section-title">The <span>Developer</span></h2></div>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem;max-width:600px">
+    <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap">
+      <div style="width:80px;height:80px;border-radius:50%;background:rgba(200,244,97,0.1);border:2px solid rgba(200,244,97,0.4);display:flex;align-items:center;justify-content:center;font-size:2.5rem;flex-shrink:0">👨‍💻</div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700">Suraj Kokate</div>
+        <div style="color:var(--muted);font-size:13px;margin-top:4px">B.Tech Computer Engineering · RIT Rajaramnagar</div>
+        <div style="display:flex;gap:1rem;margin-top:10px;flex-wrap:wrap">
+          <a href="https://github.com/surajkokate-03" target="_blank" style="color:var(--accent);text-decoration:none;font-size:13px;font-weight:600">🐙 GitHub</a>
+          <a href="https://linkedin.com/in/suraj-kokate-398200385" target="_blank" style="color:var(--accent);text-decoration:none;font-size:13px;font-weight:600">💼 LinkedIn</a>
+          <a href="mailto:surajkokate597@gmail.com" style="color:var(--accent);text-decoration:none;font-size:13px;font-weight:600">✉️ Email</a>
+        </div>
+      </div>
+    </div>
+    <p style="color:var(--muted);font-size:14px;margin-top:1.5rem;line-height:1.7">Second-year Computer Engineering student passionate about web development, IoT, and building real-world projects. This e-commerce site was built as part of a web development internship.</p>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="section-header"><h2 class="section-title">Build <span>Journey</span></h2></div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-title">Project Planning & Design</div><div class="tl-sub">Decided on dark premium aesthetic, mapped out pages and feature list</div></div>
+    <div class="tl-item"><div class="tl-title">Navigation & Layout</div><div class="tl-sub">Built sticky navbar, hero section, responsive grid system</div></div>
+    <div class="tl-item"><div class="tl-title">Product System</div><div class="tl-sub">Created product data store, product cards, modal detail view</div></div>
+    <div class="tl-item"><div class="tl-title">Cart & State Management</div><div class="tl-sub">Implemented cart sidebar, localStorage persistence, quantity control</div></div>
+    <div class="tl-item"><div class="tl-title">Filters, Search & Recommendations</div><div class="tl-sub">Category filters, price range, sort order, live search, dynamic recommendations</div></div>
+    <div class="tl-item"><div class="tl-title">Deployed to GitHub Pages 🚀</div><div class="tl-sub">Live and shared on LinkedIn</div></div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">ShopWave</span>
+  <p>Built with ❤️ by <strong>Suraj Kokate</strong> — Web Development Internship Project</p>
+  <p style="margin-top:8px">
+    <a href="https://github.com/surajkokate-03" target="_blank" style="color:var(--accent);text-decoration:none;margin:0 12px">GitHub</a>
+    <a href="https://linkedin.com/in/suraj-kokate-398200385" target="_blank" style="color:var(--accent);text-decoration:none;margin:0 12px">LinkedIn</a>
+  </p>
+  <p style="margin-top:12px;font-size:11px;opacity:0.5">© 2025 ShopWave. All rights reserved.</p>
+</footer>
+
+<div id="toast" class="toast"></div>
+</body>
+</html>
